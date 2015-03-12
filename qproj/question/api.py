@@ -9,7 +9,7 @@ class PostResource(ModelResource):
     title = fields.CharField(attribute="title")
     text = fields.CharField(attribute="text")
     is_public = fields.BooleanField(attribute="is_public")
-    comments = fields.ToManyField('qproj.question.api.CommentResource', 'comment_set', null=True, use_in="detail")
+    comments = fields.ToManyField('qproj.question.api.CommentResource', 'comment_set', full=True, null=True, use_in="detail")
     
     class Meta:
         queryset = models.Post.objects.all()
